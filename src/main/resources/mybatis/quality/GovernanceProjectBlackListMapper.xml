@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.quality.mapper.GovernanceProjectBlackListMapper">
+    
+    <resultMap type="GovernanceProjectBlackList" id="GovernanceProjectBlackListResult">
+        <result property="id"    column="id"    />
+        <result property="platformId"    column="platform_id"    />
+        <result property="platformName"    column="platform_name"    />
+        <result property="businessType"    column="business_type"    />
+        <result property="businessName"    column="business_name"    />
+        <result property="ebidsunDataId"    column="ebidsun_data_id"    />
+        <result property="catalogTableName"    column="catalog_table_name"    />
+        <result property="tenderProjectCode"    column="tender_project_code"    />
+        <result property="tenderProjectName"    column="tender_project_name"    />
+        <result property="sectionCode"    column="section_code"    />
+        <result property="sectionName"    column="section_name"    />
+        <result property="version"    column="version"    />
+        <result property="extention"    column="extention"    />
+        <result property="mask"    column="mask"    />
+        <result property="ctime"    column="ctime"    />
+        <result property="mtime"    column="mtime"    />
+    </resultMap>
+
+    <sql id="selectGovernanceProjectBlackListVo">
+        select id, platform_id, platform_name, business_type, business_name, ebidsun_data_id, catalog_table_name, tender_project_code, tender_project_name, section_code, section_name, version, extention, mask, ctime, mtime from dw_governance_project_black_list
+    </sql>
+
+    <select id="selectGovernanceProjectBlackListList" parameterType="GovernanceProjectBlackList" resultMap="GovernanceProjectBlackListResult">
+        <include refid="selectGovernanceProjectBlackListVo"/>
+        <where>  
+            <if test="platformId != null  and platformId != ''"> and platform_id = #{platformId}</if>
+            <if test="platformName != null  and platformName != ''"> and platform_name = #{platformName}</if>
+            <if test="businessType != null "> and business_type = #{businessType}</if>
+            <if test="businessName != null  and businessName != ''"> and business_name = #{businessName}</if>
+            <if test="ebidsunDataId != null  and ebidsunDataId != ''"> and ebidsun_data_id = #{ebidsunDataId}</if>
+            <if test="catalogTableName != null  and catalogTableName != ''"> and catalog_table_name = #{catalogTableName}</if>
+            <if test="tenderProjectCode != null  and tenderProjectCode != ''"> and tender_project_code = #{tenderProjectCode}</if>
+            <if test="tenderProjectName != null  and tenderProjectName != ''"> and tender_project_name = #{tenderProjectName}</if>
+            <if test="sectionCode != null  and sectionCode != ''"> and section_code = #{sectionCode}</if>
+            <if test="sectionName != null  and sectionName != ''"> and section_name = #{sectionName}</if>
+            <if test="version != null  and version != ''"> and version = #{version}</if>
+            <if test="mask != null "> and mask = #{mask}</if>
+        </where>
+    </select>
+    
+    <select id="selectGovernanceProjectBlackListById" parameterType="String" resultMap="GovernanceProjectBlackListResult">
+        <include refid="selectGovernanceProjectBlackListVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGovernanceProjectBlackList" parameterType="GovernanceProjectBlackList">
+        insert into dw_governance_project_black_list
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="platformId != null">platform_id,</if>
+            <if test="platformName != null">platform_name,</if>
+            <if test="businessType != null">business_type,</if>
+            <if test="businessName != null">business_name,</if>
+            <if test="ebidsunDataId != null">ebidsun_data_id,</if>
+            <if test="catalogTableName != null">catalog_table_name,</if>
+            <if test="tenderProjectCode != null and tenderProjectCode != ''">tender_project_code,</if>
+            <if test="tenderProjectName != null">tender_project_name,</if>
+            <if test="sectionCode != null and sectionCode != ''">section_code,</if>
+            <if test="sectionName != null">section_name,</if>
+            <if test="version != null">version,</if>
+            <if test="extention != null">extention,</if>
+            <if test="mask != null">mask,</if>
+            <if test="ctime != null">ctime,</if>
+            <if test="mtime != null">mtime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="platformId != null">#{platformId},</if>
+            <if test="platformName != null">#{platformName},</if>
+            <if test="businessType != null">#{businessType},</if>
+            <if test="businessName != null">#{businessName},</if>
+            <if test="ebidsunDataId != null">#{ebidsunDataId},</if>
+            <if test="catalogTableName != null">#{catalogTableName},</if>
+            <if test="tenderProjectCode != null and tenderProjectCode != ''">#{tenderProjectCode},</if>
+            <if test="tenderProjectName != null">#{tenderProjectName},</if>
+            <if test="sectionCode != null and sectionCode != ''">#{sectionCode},</if>
+            <if test="sectionName != null">#{sectionName},</if>
+            <if test="version != null">#{version},</if>
+            <if test="extention != null">#{extention},</if>
+            <if test="mask != null">#{mask},</if>
+            <if test="ctime != null">#{ctime},</if>
+            <if test="mtime != null">#{mtime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGovernanceProjectBlackList" parameterType="GovernanceProjectBlackList">
+        update dw_governance_project_black_list
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="platformId != null">platform_id = #{platformId},</if>
+            <if test="platformName != null">platform_name = #{platformName},</if>
+            <if test="businessType != null">business_type = #{businessType},</if>
+            <if test="businessName != null">business_name = #{businessName},</if>
+            <if test="ebidsunDataId != null">ebidsun_data_id = #{ebidsunDataId},</if>
+            <if test="catalogTableName != null">catalog_table_name = #{catalogTableName},</if>
+            <if test="tenderProjectCode != null and tenderProjectCode != ''">tender_project_code = #{tenderProjectCode},</if>
+            <if test="tenderProjectName != null">tender_project_name = #{tenderProjectName},</if>
+            <if test="sectionCode != null and sectionCode != ''">section_code = #{sectionCode},</if>
+            <if test="sectionName != null">section_name = #{sectionName},</if>
+            <if test="version != null">version = #{version},</if>
+            <if test="extention != null">extention = #{extention},</if>
+            <if test="mask != null">mask = #{mask},</if>
+            <if test="ctime != null">ctime = #{ctime},</if>
+            <if test="mtime != null">mtime = #{mtime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGovernanceProjectBlackListById" parameterType="String">
+        delete from dw_governance_project_black_list where id = #{id}
+    </delete>
+
+    <delete id="deleteGovernanceProjectBlackListByIds" parameterType="String">
+        delete from dw_governance_project_black_list where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

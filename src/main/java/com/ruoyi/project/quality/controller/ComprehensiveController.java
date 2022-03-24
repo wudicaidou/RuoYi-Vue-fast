@@ -32,12 +32,18 @@ public class ComprehensiveController extends BaseController {
     @PreAuthorize("@ss.hasPermi('quality:comprehensive:rerun')")
     @Log(title = "全面性数据重跑", businessType = BusinessType.OTHER)
     @PostMapping
-    public AjaxResult add(@Validated @RequestBody ComprehensiveReRunVO reRunVO) {
+    public AjaxResult rerun(@Validated @RequestBody ComprehensiveReRunVO reRunVO) {
         System.out.println(reRunVO);
         JSONObject params = new JSONObject();
-        params.put("global_start_day", reRunVO.getStartDate());
+        params.put("global_platform_id", reRunVO.getPlatformId());
+        params.put("global_start_date", reRunVO.getStartDate().replaceAll("-", ""));
+        params.put("global_end_date", reRunVO.getEndDate().replaceAll("-", ""));
+        DolphinApiResult result = dolphinApiService.startProcessInstance("4940252228838", params);
+
+        /*params.put("global_start_day", reRunVO.getStartDate());
         params.put("global_end_day", reRunVO.getEndDate());
-        DolphinApiResult result = dolphinApiService.startProcessInstance("4782233572576", params);
+        DolphinApiResult result = dolphinApiService.startProcessInstance("4782233572576", params);*/
+
         if (result.getSuccess()) {
             return AjaxResult.success();
         } else {
