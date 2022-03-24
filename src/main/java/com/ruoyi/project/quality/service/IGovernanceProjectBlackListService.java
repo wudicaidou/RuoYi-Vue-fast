@@ -58,4 +58,8 @@ public interface IGovernanceProjectBlackListService {
      * @return 结果
      */
     public int deleteGovernanceProjectBlackListById(String id);
+
+    int excludeGovernanceProjectBlackList();
+
+    String importList(List<GovernanceProjectBlackList> list, boolean updateSupport, String operName);
 }

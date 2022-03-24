@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.quality.mapper.GovernanceAuditFieldMapper">
+    
+    <resultMap type="GovernanceAuditField" id="GovernanceAuditFieldResult">
+        <result property="id"    column="id"    />
+        <result property="rowId"    column="row_id"    />
+        <result property="firstDataSource"    column="first_data_source"    />
+        <result property="parentFieldId"    column="parent_field_id"    />
+        <result property="fieldProcessId"    column="field_process_id"    />
+        <result property="progress"    column="progress"    />
+        <result property="firstAuditStatus"    column="first_audit_status"    />
+        <result property="tradeAuditStatus"    column="trade_audit_status"    />
+        <result property="problermCommitTime"    column="problerm_commit_time"    />
+        <result property="problermFixTime"    column="problerm_fix_time"    />
+        <result property="problemTarget"    column="problem_target"    />
+        <result property="problemTargetName"    column="problem_target_name"    />
+        <result property="reviewComments"    column="review_comments"    />
+        <result property="createModel"    column="create_model"    />
+        <result property="problemStatus"    column="problem_status"    />
+        <result property="fieldName"    column="field_name"    />
+        <result property="fieldNameCn"    column="field_name_cn"    />
+        <result property="fieldValue"    column="field_value"    />
+        <result property="tagId"    column="tag_id"    />
+        <result property="firstLevelTag"    column="first_level_tag"    />
+        <result property="secondLevelTag"    column="second_level_tag"    />
+        <result property="logicId"    column="logic_id"    />
+        <result property="fileDesc"    column="file_desc"    />
+        <result property="errMsg"    column="err_msg"    />
+        <result property="responsible"    column="responsible"    />
+        <result property="responsiblePhone"    column="responsible_phone"    />
+        <result property="textMsg"    column="text_msg"    />
+        <result property="extension"    column="extension"    />
+        <result property="mask"    column="mask"    />
+        <result property="ctime"    column="ctime"    />
+        <result property="mtime"    column="mtime"    />
+        <result property="problermDoFixTimes"    column="problerm_do_fix_times"    />
+        <result property="manualAuditStatus"    column="manual_audit_status"    />
+        <result property="manualGovCounter"    column="manual_gov_counter"    />
+        <result property="manualReviewTime"    column="manual_review_time"    />
+        <result property="createUserId"    column="create_user_id"    />
+        <result property="problermName"    column="problerm_name"    />
+        <result property="ebidsunAuditTime"    column="ebidsun_audit_time"    />
+        <result property="platformAuditTime"    column="platform_audit_time"    />
+        <result property="firstSysFixTime"    column="first_sys_fix_time"    />
+        <result property="tradeSysFixTime"    column="trade_sys_fix_time"    />
+        <result property="sysFixPid"    column="sys_fix_pid"    />
+        <result property="manualSysFixTime"    column="manual_sys_fix_time"    />
+        <result property="fixed"    column="fixed"    />
+        <result property="thirdLevelTag"    column="third_level_tag"    />
+        <result property="errType"    column="err_type"    />
+        <result property="dataUploadTime"    column="data_upload_time"    />
+        <result property="problermRules"    column="problerm_rules"    />
+        <result property="ebidsunDataId"    column="ebidsun_data_id"    />
+        <result property="testData"    column="test_data"    />
+    </resultMap>
+
+    <sql id="selectGovernanceAuditFieldVo">
+        select id, row_id, first_data_source, parent_field_id, field_process_id, progress, first_audit_status, trade_audit_status, problerm_commit_time, problerm_fix_time, problem_target, problem_target_name, review_comments, create_model, problem_status, field_name, field_name_cn, field_value, tag_id, first_level_tag, second_level_tag, logic_id, file_desc, err_msg, responsible, responsible_phone, text_msg, extension, mask, ctime, mtime, problerm_do_fix_times, manual_audit_status, manual_gov_counter, manual_review_time, create_user_id, problerm_name, ebidsun_audit_time, platform_audit_time, first_sys_fix_time, trade_sys_fix_time, sys_fix_pid, manual_sys_fix_time, fixed, third_level_tag, err_type, data_upload_time, problerm_rules, ebidsun_data_id, test_data from governance_audit_field
+    </sql>
+
+    <select id="selectGovernanceAuditFieldList" parameterType="GovernanceAuditField" resultMap="GovernanceAuditFieldResult">
+        <include refid="selectGovernanceAuditFieldVo"/>
+        <where>  
+            <if test="rowId != null  and rowId != ''"> and row_id = #{rowId}</if>
+            <if test="firstDataSource != null "> and first_data_source = #{firstDataSource}</if>
+            <if test="parentFieldId != null  and parentFieldId != ''"> and parent_field_id = #{parentFieldId}</if>
+            <if test="fieldProcessId != null  and fieldProcessId != ''"> and field_process_id = #{fieldProcessId}</if>
+            <if test="progress != null "> and progress = #{progress}</if>
+            <if test="firstAuditStatus != null "> and first_audit_status = #{firstAuditStatus}</if>
+            <if test="tradeAuditStatus != null "> and trade_audit_status = #{tradeAuditStatus}</if>
+            <if test="problermCommitTime != null "> and problerm_commit_time = #{problermCommitTime}</if>
+            <if test="problermFixTime != null "> and problerm_fix_time = #{problermFixTime}</if>
+            <if test="problemTarget != null "> and problem_target = #{problemTarget}</if>
+            <if test="problemTargetName != null  and problemTargetName != ''"> and problem_target_name = #{problemTargetName}</if>
+            <if test="reviewComments != null  and reviewComments != ''"> and review_comments = #{reviewComments}</if>
+            <if test="createModel != null "> and create_model = #{createModel}</if>
+            <if test="problemStatus != null "> and problem_status = #{problemStatus}</if>
+            <if test="fieldName != null  and fieldName != ''"> and field_name = #{fieldName}</if>
+            <if test="fieldNameCn != null  and fieldNameCn != ''"> and field_name_cn = #{fieldNameCn}</if>
+            <if test="fieldValue != null  and fieldValue != ''"> and field_value = #{fieldValue}</if>
+            <if test="tagId != null  and tagId != ''"> and tag_id = #{tagId}</if>
+            <if test="firstLevelTag != null  and firstLevelTag != ''"> and first_level_tag = #{firstLevelTag}</if>
+            <if test="secondLevelTag != null  and secondLevelTag != ''"> and second_level_tag = #{secondLevelTag}</if>
+            <if test="logicId != null  and logicId != ''"> and logic_id = #{logicId}</if>
+            <if test="fileDesc != null  and fileDesc != ''"> and file_desc = #{fileDesc}</if>
+            <if test="errMsg != null  and errMsg != ''"> and err_msg = #{errMsg}</if>
+            <if test="responsible != null  and responsible != ''"> and responsible = #{responsible}</if>
+            <if test="responsiblePhone != null  and responsiblePhone != ''"> and responsible_phone = #{responsiblePhone}</if>
+            <if test="textMsg != null  and textMsg != ''"> and text_msg = #{textMsg}</if>
+            <if test="extension != null  and extension != ''"> and extension = #{extension}</if>
+            <if test="mask != null "> and mask = #{mask}</if>
+            <if test="ctime != null "> and ctime = #{ctime}</if>
+            <if test="mtime != null "> and mtime = #{mtime}</if>
+            <if test="problermDoFixTimes != null "> and problerm_do_fix_times = #{problermDoFixTimes}</if>
+            <if test="manualAuditStatus != null "> and manual_audit_status = #{manualAuditStatus}</if>
+            <if test="manualGovCounter != null "> and manual_gov_counter = #{manualGovCounter}</if>
+            <if test="manualReviewTime != null "> and manual_review_time = #{manualReviewTime}</if>
+            <if test="createUserId != null  and createUserId != ''"> and create_user_id = #{createUserId}</if>
+            <if test="problermName != null  and problermName != ''"> and problerm_name = #{problermName}</if>
+            <if test="ebidsunAuditTime != null "> and ebidsun_audit_time = #{ebidsunAuditTime}</if>
+            <if test="platformAuditTime != null "> and platform_audit_time = #{platformAuditTime}</if>
+            <if test="firstSysFixTime != null "> and first_sys_fix_time = #{firstSysFixTime}</if>
+            <if test="tradeSysFixTime != null "> and trade_sys_fix_time = #{tradeSysFixTime}</if>
+            <if test="sysFixPid != null  and sysFixPid != ''"> and sys_fix_pid = #{sysFixPid}</if>
+            <if test="manualSysFixTime != null "> and manual_sys_fix_time = #{manualSysFixTime}</if>
+            <if test="fixed != null "> and fixed = #{fixed}</if>
+            <if test="thirdLevelTag != null  and thirdLevelTag != ''"> and third_level_tag = #{thirdLevelTag}</if>
+            <if test="errType != null  and errType != ''"> and err_type = #{errType}</if>
+            <if test="dataUploadTime != null "> and data_upload_time = #{dataUploadTime}</if>
+            <if test="problermRules != null  and problermRules != ''"> and problerm_rules = #{problermRules}</if>
+            <if test="ebidsunDataId != null  and ebidsunDataId != ''"> and ebidsun_data_id = #{ebidsunDataId}</if>
+            <if test="testData != null "> and test_data = #{testData}</if>
+        </where>
+    </select>
+    
+    <select id="selectGovernanceAuditFieldById" parameterType="String" resultMap="GovernanceAuditFieldResult">
+        <include refid="selectGovernanceAuditFieldVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertGovernanceAuditField" parameterType="GovernanceAuditField">
+        insert into governance_audit_field
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="rowId != null and rowId != ''">row_id,</if>
+            <if test="firstDataSource != null">first_data_source,</if>
+            <if test="parentFieldId != null and parentFieldId != ''">parent_field_id,</if>
+            <if test="fieldProcessId != null">field_process_id,</if>
+            <if test="progress != null">progress,</if>
+            <if test="firstAuditStatus != null">first_audit_status,</if>
+            <if test="tradeAuditStatus != null">trade_audit_status,</if>
+            <if test="problermCommitTime != null">problerm_commit_time,</if>
+            <if test="problermFixTime != null">problerm_fix_time,</if>
+            <if test="problemTarget != null">problem_target,</if>
+            <if test="problemTargetName != null and problemTargetName != ''">problem_target_name,</if>
+            <if test="reviewComments != null">review_comments,</if>
+            <if test="createModel != null">create_model,</if>
+            <if test="problemStatus != null">problem_status,</if>
+            <if test="fieldName != null and fieldName != ''">field_name,</if>
+            <if test="fieldNameCn != null and fieldNameCn != ''">field_name_cn,</if>
+            <if test="fieldValue != null">field_value,</if>
+            <if test="tagId != null">tag_id,</if>
+            <if test="firstLevelTag != null">first_level_tag,</if>
+            <if test="secondLevelTag != null">second_level_tag,</if>
+            <if test="logicId != null">logic_id,</if>
+            <if test="fileDesc != null">file_desc,</if>
+            <if test="errMsg != null">err_msg,</if>
+            <if test="responsible != null">responsible,</if>
+            <if test="responsiblePhone != null">responsible_phone,</if>
+            <if test="textMsg != null">text_msg,</if>
+            <if test="extension != null">extension,</if>
+            <if test="mask != null">mask,</if>
+            <if test="ctime != null">ctime,</if>
+            <if test="mtime != null">mtime,</if>
+            <if test="problermDoFixTimes != null">problerm_do_fix_times,</if>
+            <if test="manualAuditStatus != null">manual_audit_status,</if>
+            <if test="manualGovCounter != null">manual_gov_counter,</if>
+            <if test="manualReviewTime != null">manual_review_time,</if>
+            <if test="createUserId != null">create_user_id,</if>
+            <if test="problermName != null">problerm_name,</if>
+            <if test="ebidsunAuditTime != null">ebidsun_audit_time,</if>
+            <if test="platformAuditTime != null">platform_audit_time,</if>
+            <if test="firstSysFixTime != null">first_sys_fix_time,</if>
+            <if test="tradeSysFixTime != null">trade_sys_fix_time,</if>
+            <if test="sysFixPid != null">sys_fix_pid,</if>
+            <if test="manualSysFixTime != null">manual_sys_fix_time,</if>
+            <if test="fixed != null">fixed,</if>
+            <if test="thirdLevelTag != null">third_level_tag,</if>
+            <if test="errType != null">err_type,</if>
+            <if test="dataUploadTime != null">data_upload_time,</if>
+            <if test="problermRules != null">problerm_rules,</if>
+            <if test="ebidsunDataId != null">ebidsun_data_id,</if>
+            <if test="testData != null">test_data,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="rowId != null and rowId != ''">#{rowId},</if>
+            <if test="firstDataSource != null">#{firstDataSource},</if>
+            <if test="parentFieldId != null and parentFieldId != ''">#{parentFieldId},</if>
+            <if test="fieldProcessId != null">#{fieldProcessId},</if>
+            <if test="progress != null">#{progress},</if>
+            <if test="firstAuditStatus != null">#{firstAuditStatus},</if>
+            <if test="tradeAuditStatus != null">#{tradeAuditStatus},</if>
+            <if test="problermCommitTime != null">#{problermCommitTime},</if>
+            <if test="problermFixTime != null">#{problermFixTime},</if>
+            <if test="problemTarget != null">#{problemTarget},</if>
+            <if test="problemTargetName != null and problemTargetName != ''">#{problemTargetName},</if>
+            <if test="reviewComments != null">#{reviewComments},</if>
+            <if test="createModel != null">#{createModel},</if>
+            <if test="problemStatus != null">#{problemStatus},</if>
+            <if test="fieldName != null and fieldName != ''">#{fieldName},</if>
+            <if test="fieldNameCn != null and fieldNameCn != ''">#{fieldNameCn},</if>
+            <if test="fieldValue != null">#{fieldValue},</if>
+            <if test="tagId != null">#{tagId},</if>
+            <if test="firstLevelTag != null">#{firstLevelTag},</if>
+            <if test="secondLevelTag != null">#{secondLevelTag},</if>
+            <if test="logicId != null">#{logicId},</if>
+            <if test="fileDesc != null">#{fileDesc},</if>
+            <if test="errMsg != null">#{errMsg},</if>
+            <if test="responsible != null">#{responsible},</if>
+            <if test="responsiblePhone != null">#{responsiblePhone},</if>
+            <if test="textMsg != null">#{textMsg},</if>
+            <if test="extension != null">#{extension},</if>
+            <if test="mask != null">#{mask},</if>
+            <if test="ctime != null">#{ctime},</if>
+            <if test="mtime != null">#{mtime},</if>
+            <if test="problermDoFixTimes != null">#{problermDoFixTimes},</if>
+            <if test="manualAuditStatus != null">#{manualAuditStatus},</if>
+            <if test="manualGovCounter != null">#{manualGovCounter},</if>
+            <if test="manualReviewTime != null">#{manualReviewTime},</if>
+            <if test="createUserId != null">#{createUserId},</if>
+            <if test="problermName != null">#{problermName},</if>
+            <if test="ebidsunAuditTime != null">#{ebidsunAuditTime},</if>
+            <if test="platformAuditTime != null">#{platformAuditTime},</if>
+            <if test="firstSysFixTime != null">#{firstSysFixTime},</if>
+            <if test="tradeSysFixTime != null">#{tradeSysFixTime},</if>
+            <if test="sysFixPid != null">#{sysFixPid},</if>
+            <if test="manualSysFixTime != null">#{manualSysFixTime},</if>
+            <if test="fixed != null">#{fixed},</if>
+            <if test="thirdLevelTag != null">#{thirdLevelTag},</if>
+            <if test="errType != null">#{errType},</if>
+            <if test="dataUploadTime != null">#{dataUploadTime},</if>
+            <if test="problermRules != null">#{problermRules},</if>
+            <if test="ebidsunDataId != null">#{ebidsunDataId},</if>
+            <if test="testData != null">#{testData},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGovernanceAuditField" parameterType="GovernanceAuditField">
+        update governance_audit_field
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="rowId != null and rowId != ''">row_id = #{rowId},</if>
+            <if test="firstDataSource != null">first_data_source = #{firstDataSource},</if>
+            <if test="parentFieldId != null and parentFieldId != ''">parent_field_id = #{parentFieldId},</if>
+            <if test="fieldProcessId != null">field_process_id = #{fieldProcessId},</if>
+            <if test="progress != null">progress = #{progress},</if>
+            <if test="firstAuditStatus != null">first_audit_status = #{firstAuditStatus},</if>
+            <if test="tradeAuditStatus != null">trade_audit_status = #{tradeAuditStatus},</if>
+            <if test="problermCommitTime != null">problerm_commit_time = #{problermCommitTime},</if>
+            <if test="problermFixTime != null">problerm_fix_time = #{problermFixTime},</if>
+            <if test="problemTarget != null">problem_target = #{problemTarget},</if>
+            <if test="problemTargetName != null and problemTargetName != ''">problem_target_name = #{problemTargetName},</if>
+            <if test="reviewComments != null">review_comments = #{reviewComments},</if>
+            <if test="createModel != null">create_model = #{createModel},</if>
+            <if test="problemStatus != null">problem_status = #{problemStatus},</if>
+            <if test="fieldName != null and fieldName != ''">field_name = #{fieldName},</if>
+            <if test="fieldNameCn != null and fieldNameCn != ''">field_name_cn = #{fieldNameCn},</if>
+            <if test="fieldValue != null">field_value = #{fieldValue},</if>
+            <if test="tagId != null">tag_id = #{tagId},</if>
+            <if test="firstLevelTag != null">first_level_tag = #{firstLevelTag},</if>
+            <if test="secondLevelTag != null">second_level_tag = #{secondLevelTag},</if>
+            <if test="logicId != null">logic_id = #{logicId},</if>
+            <if test="fileDesc != null">file_desc = #{fileDesc},</if>
+            <if test="errMsg != null">err_msg = #{errMsg},</if>
+            <if test="responsible != null">responsible = #{responsible},</if>
+            <if test="responsiblePhone != null">responsible_phone = #{responsiblePhone},</if>
+            <if test="textMsg != null">text_msg = #{textMsg},</if>
+            <if test="extension != null">extension = #{extension},</if>
+            <if test="mask != null">mask = #{mask},</if>
+            <if test="ctime != null">ctime = #{ctime},</if>
+            <if test="mtime != null">mtime = #{mtime},</if>
+            <if test="problermDoFixTimes != null">problerm_do_fix_times = #{problermDoFixTimes},</if>
+            <if test="manualAuditStatus != null">manual_audit_status = #{manualAuditStatus},</if>
+            <if test="manualGovCounter != null">manual_gov_counter = #{manualGovCounter},</if>
+            <if test="manualReviewTime != null">manual_review_time = #{manualReviewTime},</if>
+            <if test="createUserId != null">create_user_id = #{createUserId},</if>
+            <if test="problermName != null">problerm_name = #{problermName},</if>
+            <if test="ebidsunAuditTime != null">ebidsun_audit_time = #{ebidsunAuditTime},</if>
+            <if test="platformAuditTime != null">platform_audit_time = #{platformAuditTime},</if>
+            <if test="firstSysFixTime != null">first_sys_fix_time = #{firstSysFixTime},</if>
+            <if test="tradeSysFixTime != null">trade_sys_fix_time = #{tradeSysFixTime},</if>
+            <if test="sysFixPid != null">sys_fix_pid = #{sysFixPid},</if>
+            <if test="manualSysFixTime != null">manual_sys_fix_time = #{manualSysFixTime},</if>
+            <if test="fixed != null">fixed = #{fixed},</if>
+            <if test="thirdLevelTag != null">third_level_tag = #{thirdLevelTag},</if>
+            <if test="errType != null">err_type = #{errType},</if>
+            <if test="dataUploadTime != null">data_upload_time = #{dataUploadTime},</if>
+            <if test="problermRules != null">problerm_rules = #{problermRules},</if>
+            <if test="ebidsunDataId != null">ebidsun_data_id = #{ebidsunDataId},</if>
+            <if test="testData != null">test_data = #{testData},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteGovernanceAuditFieldById" parameterType="String">
+        delete from governance_audit_field where id = #{id}
+    </delete>
+
+    <delete id="deleteGovernanceAuditFieldByIds" parameterType="String">
+        delete from governance_audit_field where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

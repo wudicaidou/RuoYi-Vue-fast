@@ -3,6 +3,7 @@ package com.ruoyi.project.quality.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ruoyi.project.system.domain.SysUser;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.framework.web.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 测试数据黑名单Controller
@@ -57,6 +59,23 @@ public class GovernanceProjectBlackListController extends BaseController {
         util.exportExcel(response, list, "测试数据黑名单数据");
     }
 
+    @Log(title = "测试数据黑名单", businessType = BusinessType.IMPORT)
+    @PreAuthorize("@ss.hasPermi('quality:blacklist:import')")
+    @PostMapping("/importData")
+    public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception {
+        ExcelUtil<GovernanceProjectBlackList> util = new ExcelUtil<>(GovernanceProjectBlackList.class);
+        List<GovernanceProjectBlackList> list = util.importExcel(file.getInputStream());
+        String operName = getUsername();
+        String message = governanceProjectBlackListService.importList(list, updateSupport, operName);
+        return AjaxResult.success(message);
+    }
+
+    @PostMapping("/importTemplate")
+    public void importTemplate(HttpServletResponse response) {
+        ExcelUtil<GovernanceProjectBlackList> util = new ExcelUtil<>(GovernanceProjectBlackList.class);
+        util.importTemplateExcel(response, "屏蔽测试数据");
+    }
+
     /**
      * 获取测试数据黑名单详细信息
      */
@@ -84,6 +103,13 @@ public class GovernanceProjectBlackListController extends BaseController {
     @PutMapping
     public AjaxResult edit(@RequestBody GovernanceProjectBlackList governanceProjectBlackList) {
         return toAjax(governanceProjectBlackListService.updateGovernanceProjectBlackList(governanceProjectBlackList));
+    }
+
+    @PreAuthorize("@ss.hasPermi('quality:blacklist:edit')")
+    @Log(title = "测试数据黑名单", businessType = BusinessType.OTHER)
+    @PutMapping(value = "/exclude")
+    public AjaxResult exclude() {
+        return toAjax(governanceProjectBlackListService.excludeGovernanceProjectBlackList());
     }
 
     /**

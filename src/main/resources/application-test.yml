@@ -91,10 +91,10 @@ spring:
       # 从库数据源
       slave:
         # 从数据源开关/默认关闭
-        enabled: false
-        url: jdbc:mysql://10.212.15.186:3306/bidsun_ecs?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-        username: services
-        password: #MYsBvVB
+        enabled: true
+        url: jdbc:mysql://localhost:3306/cluster_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        username: root
+        password: 123456
       # 初始连接数
       initialSize: 5
       # 最小连接池数量

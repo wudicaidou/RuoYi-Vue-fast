@@ -25,67 +25,67 @@ public class GovernanceProjectBlackList extends BaseEntity {
     /**
      * 数据上传交易中心编码
      */
-    @Excel(name = "数据上传交易中心编码")
+    @Excel(name = "交易中心编码(非必填)", width = 24)
     private String platformId;
 
     /**
      * 数据上传交易中心名称
      */
-    @Excel(name = "数据上传交易中心名称")
+    //@Excel(name = "数据上传交易中心名称")
     private String platformName;
 
     /**
      * 业务类型
      */
-    @Excel(name = "业务类型 ")
+    //@Excel(name = "业务类型")
     private Long businessType;
 
     /**
      * 业务类型
      */
-    @Excel(name = "业务类型")
+    //@Excel(name = "业务类型")
     private String businessName;
 
     /**
      * catalog数据ID
      */
-    @Excel(name = "catalog数据ID")
+    //@Excel(name = "catalog数据ID")
     private String ebidsunDataId;
 
     /**
      * catalog表名
      */
-    @Excel(name = "catalog表名")
+    //@Excel(name = "catalog表名")
     private String catalogTableName;
 
     /**
      * 招标项目编号
      */
-    @Excel(name = "招标项目编号")
+    @Excel(name = "项目编号(必填)", width = 30)
     private String tenderProjectCode;
 
     /**
      * 招标项目名称
      */
-    @Excel(name = "招标项目名称")
+    //@Excel(name = "招标项目名称")
     private String tenderProjectName;
 
     /**
      * 标段编号
      */
-    @Excel(name = "标段编号")
+    @Excel(name = "标段编号(必填,多个用英文逗号分隔)", width = 100)
     private String sectionCode;
 
     /**
      * 标段名称
      */
-    @Excel(name = "标段名称")
+    //@Excel(name = "标段名称")
     private String sectionName;
 
     /**
      * 数据版本
      */
-    @Excel(name = "数据版本")
+    //@Excel(name = "数据版本")
     private String version;
 
     /**

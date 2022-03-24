@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.quality.mapper.GovernanceAuditRowMapper">
+    
+    <resultMap type="GovernanceAuditRow" id="GovernanceAuditRowResult">
+        <result property="rowId"    column="row_id"    />
+        <result property="parentRowId"    column="parent_row_id"    />
+        <result property="logicVersion"    column="logic_version"    />
+        <result property="mainKeyId"    column="main_key_id"    />
+        <result property="pid"    column="pid"    />
+        <result property="sourceTableNameTag"    column="source_table_name_tag"    />
+        <result property="sourceTableName"    column="source_table_name"    />
+        <result property="sourceTableNameCn"    column="source_table_name_cn"    />
+        <result property="sourceDataId"    column="source_data_id"    />
+        <result property="projectCode"    column="project_code"    />
+        <result property="projectName"    column="project_name"    />
+        <result property="tenderProjectCode"    column="tender_project_code"    />
+        <result property="tenderProjectName"    column="tender_project_name"    />
+        <result property="sectionCode"    column="section_code"    />
+        <result property="sectionName"    column="section_name"    />
+        <result property="businessType"    column="business_type"    />
+        <result property="dataVersion"    column="data_version"    />
+        <result property="platformId"    column="platform_id"    />
+        <result property="dataType"    column="data_type"    />
+        <result property="version"    column="version"    />
+        <result property="dataSource"    column="data_source"    />
+        <result property="errDetail"    column="err_detail"    />
+        <result property="crawlerTime"    column="crawler_time"    />
+        <result property="platformName"    column="PLATFORM_NAME"    />
+        <result property="platformCode"    column="PLATFORM_CODE"    />
+        <result property="platformDepartment"    column="PLATFORM_DEPARTMENT"    />
+        <result property="platformResponsible"    column="PLATFORM_RESPONSIBLE"    />
+        <result property="platformResponsiblePhone"    column="PLATFORM_RESPONSIBLE_PHONE"    />
+        <result property="platformResponsibleUnit"    column="PLATFORM_RESPONSIBLE_UNIT"    />
+        <result property="dataResponsibleCode"    column="DATA_RESPONSIBLE_CODE"    />
+        <result property="dataResponsible"    column="DATA_RESPONSIBLE"    />
+        <result property="dataResponsiblePhone"    column="DATA_RESPONSIBLE_PHONE"    />
+        <result property="extension"    column="extension"    />
+        <result property="mask"    column="mask"    />
+        <result property="ctime"    column="ctime"    />
+        <result property="mtime"    column="mtime"    />
+        <result property="maxLogicVersion"    column="max_logic_version"    />
+        <result property="testData"    column="test_data"    />
+    </resultMap>
+
+    <sql id="selectGovernanceAuditRowVo">
+        select row_id, parent_row_id, logic_version, main_key_id, pid, source_table_name_tag, source_table_name, source_table_name_cn, source_data_id, project_code, project_name, tender_project_code, tender_project_name, section_code, section_name, business_type, data_version, platform_id, data_type, version, data_source, err_detail, crawler_time, PLATFORM_NAME, PLATFORM_CODE, PLATFORM_DEPARTMENT, PLATFORM_RESPONSIBLE, PLATFORM_RESPONSIBLE_PHONE, PLATFORM_RESPONSIBLE_UNIT, DATA_RESPONSIBLE_CODE, DATA_RESPONSIBLE, DATA_RESPONSIBLE_PHONE, extension, mask, ctime, mtime, max_logic_version, test_data from governance_aduit_row
+    </sql>
+
+    <select id="selectGovernanceAuditRowList" parameterType="GovernanceAuditRow" resultMap="GovernanceAuditRowResult">
+        <include refid="selectGovernanceAuditRowVo"/>
+        <where>  
+            <if test="parentRowId != null  and parentRowId != ''"> and parent_row_id = #{parentRowId}</if>
+            <if test="logicVersion != null "> and logic_version = #{logicVersion}</if>
+            <if test="mainKeyId != null  and mainKeyId != ''"> and main_key_id = #{mainKeyId}</if>
+            <if test="pid != null  and pid != ''"> and pid = #{pid}</if>
+            <if test="sourceTableNameTag != null  and sourceTableNameTag != ''"> and source_table_name_tag = #{sourceTableNameTag}</if>
+            <if test="sourceTableName != null  and sourceTableName != ''"> and source_table_name = #{sourceTableName}</if>
+            <if test="sourceTableNameCn != null  and sourceTableNameCn != ''"> and source_table_name_cn = #{sourceTableNameCn}</if>
+            <if test="sourceDataId != null  and sourceDataId != ''"> and source_data_id = #{sourceDataId}</if>
+            <if test="projectCode != null  and projectCode != ''"> and project_code = #{projectCode}</if>
+            <if test="projectName != null  and projectName != ''"> and project_name = #{projectName}</if>
+            <if test="tenderProjectCode != null  and tenderProjectCode != ''"> and tender_project_code = #{tenderProjectCode}</if>
+            <if test="tenderProjectName != null  and tenderProjectName != ''"> and tender_project_name = #{tenderProjectName}</if>
+            <if test="sectionCode != null  and sectionCode != ''"> and section_code = #{sectionCode}</if>
+            <if test="sectionName != null  and sectionName != ''"> and section_name = #{sectionName}</if>
+            <if test="businessType != null "> and business_type = #{businessType}</if>
+            <if test="dataVersion != null  and dataVersion != ''"> and data_version = #{dataVersion}</if>
+            <if test="platformId != null  and platformId != ''"> and platform_id = #{platformId}</if>
+            <if test="dataType != null "> and data_type = #{dataType}</if>
+            <if test="version != null "> and version = #{version}</if>
+            <if test="dataSource != null "> and data_source = #{dataSource}</if>
+            <if test="errDetail != null  and errDetail != ''"> and err_detail = #{errDetail}</if>
+            <if test="crawlerTime != null "> and crawler_time = #{crawlerTime}</if>
+            <if test="platformName != null  and platformName != ''"> and PLATFORM_NAME = #{platformName}</if>
+            <if test="platformCode != null  and platformCode != ''"> and PLATFORM_CODE = #{platformCode}</if>
+            <if test="platformDepartment != null  and platformDepartment != ''"> and PLATFORM_DEPARTMENT = #{platformDepartment}</if>
+            <if test="platformResponsible != null  and platformResponsible != ''"> and PLATFORM_RESPONSIBLE = #{platformResponsible}</if>
+            <if test="platformResponsiblePhone != null  and platformResponsiblePhone != ''"> and PLATFORM_RESPONSIBLE_PHONE = #{platformResponsiblePhone}</if>
+            <if test="platformResponsibleUnit != null  and platformResponsibleUnit != ''"> and PLATFORM_RESPONSIBLE_UNIT = #{platformResponsibleUnit}</if>
+            <if test="dataResponsibleCode != null  and dataResponsibleCode != ''"> and DATA_RESPONSIBLE_CODE = #{dataResponsibleCode}</if>
+            <if test="dataResponsible != null  and dataResponsible != ''"> and DATA_RESPONSIBLE = #{dataResponsible}</if>
+            <if test="dataResponsiblePhone != null  and dataResponsiblePhone != ''"> and DATA_RESPONSIBLE_PHONE = #{dataResponsiblePhone}</if>
+            <if test="extension != null  and extension != ''"> and extension = #{extension}</if>
+            <if test="mask != null "> and mask = #{mask}</if>
+            <if test="ctime != null "> and ctime = #{ctime}</if>
+            <if test="mtime != null "> and mtime = #{mtime}</if>
+            <if test="maxLogicVersion != null "> and max_logic_version = #{maxLogicVersion}</if>
+            <if test="testData != null "> and test_data = #{testData}</if>
+        </where>
+    </select>
+    
+    <select id="selectGovernanceAuditRowByRowId" parameterType="String" resultMap="GovernanceAuditRowResult">
+        <include refid="selectGovernanceAuditRowVo"/>
+        where row_id = #{rowId}
+    </select>
+        
+    <insert id="insertGovernanceAuditRow" parameterType="GovernanceAuditRow">
+        insert into governance_aduit_row
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="rowId != null">row_id,</if>
+            <if test="parentRowId != null">parent_row_id,</if>
+            <if test="logicVersion != null">logic_version,</if>
+            <if test="mainKeyId != null and mainKeyId != ''">main_key_id,</if>
+            <if test="pid != null and pid != ''">pid,</if>
+            <if test="sourceTableNameTag != null and sourceTableNameTag != ''">source_table_name_tag,</if>
+            <if test="sourceTableName != null and sourceTableName != ''">source_table_name,</if>
+            <if test="sourceTableNameCn != null and sourceTableNameCn != ''">source_table_name_cn,</if>
+            <if test="sourceDataId != null and sourceDataId != ''">source_data_id,</if>
+            <if test="projectCode != null">project_code,</if>
+            <if test="projectName != null">project_name,</if>
+            <if test="tenderProjectCode != null">tender_project_code,</if>
+            <if test="tenderProjectName != null">tender_project_name,</if>
+            <if test="sectionCode != null">section_code,</if>
+            <if test="sectionName != null">section_name,</if>
+            <if test="businessType != null">business_type,</if>
+            <if test="dataVersion != null">data_version,</if>
+            <if test="platformId != null and platformId != ''">platform_id,</if>
+            <if test="dataType != null">data_type,</if>
+            <if test="version != null">version,</if>
+            <if test="dataSource != null">data_source,</if>
+            <if test="errDetail != null">err_detail,</if>
+            <if test="crawlerTime != null">crawler_time,</if>
+            <if test="platformName != null">PLATFORM_NAME,</if>
+            <if test="platformCode != null">PLATFORM_CODE,</if>
+            <if test="platformDepartment != null">PLATFORM_DEPARTMENT,</if>
+            <if test="platformResponsible != null">PLATFORM_RESPONSIBLE,</if>
+            <if test="platformResponsiblePhone != null">PLATFORM_RESPONSIBLE_PHONE,</if>
+            <if test="platformResponsibleUnit != null">PLATFORM_RESPONSIBLE_UNIT,</if>
+            <if test="dataResponsibleCode != null">DATA_RESPONSIBLE_CODE,</if>
+            <if test="dataResponsible != null">DATA_RESPONSIBLE,</if>
+            <if test="dataResponsiblePhone != null">DATA_RESPONSIBLE_PHONE,</if>
+            <if test="extension != null">extension,</if>
+            <if test="mask != null">mask,</if>
+            <if test="ctime != null">ctime,</if>
+            <if test="mtime != null">mtime,</if>
+            <if test="maxLogicVersion != null">max_logic_version,</if>
+            <if test="testData != null">test_data,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="rowId != null">#{rowId},</if>
+            <if test="parentRowId != null">#{parentRowId},</if>
+            <if test="logicVersion != null">#{logicVersion},</if>
+            <if test="mainKeyId != null and mainKeyId != ''">#{mainKeyId},</if>
+            <if test="pid != null and pid != ''">#{pid},</if>
+            <if test="sourceTableNameTag != null and sourceTableNameTag != ''">#{sourceTableNameTag},</if>
+            <if test="sourceTableName != null and sourceTableName != ''">#{sourceTableName},</if>
+            <if test="sourceTableNameCn != null and sourceTableNameCn != ''">#{sourceTableNameCn},</if>
+            <if test="sourceDataId != null and sourceDataId != ''">#{sourceDataId},</if>
+            <if test="projectCode != null">#{projectCode},</if>
+            <if test="projectName != null">#{projectName},</if>
+            <if test="tenderProjectCode != null">#{tenderProjectCode},</if>
+            <if test="tenderProjectName != null">#{tenderProjectName},</if>
+            <if test="sectionCode != null">#{sectionCode},</if>
+            <if test="sectionName != null">#{sectionName},</if>
+            <if test="businessType != null">#{businessType},</if>
+            <if test="dataVersion != null">#{dataVersion},</if>
+            <if test="platformId != null and platformId != ''">#{platformId},</if>
+            <if test="dataType != null">#{dataType},</if>
+            <if test="version != null">#{version},</if>
+            <if test="dataSource != null">#{dataSource},</if>
+            <if test="errDetail != null">#{errDetail},</if>
+            <if test="crawlerTime != null">#{crawlerTime},</if>
+            <if test="platformName != null">#{platformName},</if>
+            <if test="platformCode != null">#{platformCode},</if>
+            <if test="platformDepartment != null">#{platformDepartment},</if>
+            <if test="platformResponsible != null">#{platformResponsible},</if>
+            <if test="platformResponsiblePhone != null">#{platformResponsiblePhone},</if>
+            <if test="platformResponsibleUnit != null">#{platformResponsibleUnit},</if>
+            <if test="dataResponsibleCode != null">#{dataResponsibleCode},</if>
+            <if test="dataResponsible != null">#{dataResponsible},</if>
+            <if test="dataResponsiblePhone != null">#{dataResponsiblePhone},</if>
+            <if test="extension != null">#{extension},</if>
+            <if test="mask != null">#{mask},</if>
+            <if test="ctime != null">#{ctime},</if>
+            <if test="mtime != null">#{mtime},</if>
+            <if test="maxLogicVersion != null">#{maxLogicVersion},</if>
+            <if test="testData != null">#{testData},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGovernanceAuditRow" parameterType="GovernanceAuditRow">
+        update governance_aduit_row
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="parentRowId != null">parent_row_id = #{parentRowId},</if>
+            <if test="logicVersion != null">logic_version = #{logicVersion},</if>
+            <if test="mainKeyId != null and mainKeyId != ''">main_key_id = #{mainKeyId},</if>
+            <if test="pid != null and pid != ''">pid = #{pid},</if>
+            <if test="sourceTableNameTag != null and sourceTableNameTag != ''">source_table_name_tag = #{sourceTableNameTag},</if>
+            <if test="sourceTableName != null and sourceTableName != ''">source_table_name = #{sourceTableName},</if>
+            <if test="sourceTableNameCn != null and sourceTableNameCn != ''">source_table_name_cn = #{sourceTableNameCn},</if>
+            <if test="sourceDataId != null and sourceDataId != ''">source_data_id = #{sourceDataId},</if>
+            <if test="projectCode != null">project_code = #{projectCode},</if>
+            <if test="projectName != null">project_name = #{projectName},</if>
+            <if test="tenderProjectCode != null">tender_project_code = #{tenderProjectCode},</if>
+            <if test="tenderProjectName != null">tender_project_name = #{tenderProjectName},</if>
+            <if test="sectionCode != null">section_code = #{sectionCode},</if>
+            <if test="sectionName != null">section_name = #{sectionName},</if>
+            <if test="businessType != null">business_type = #{businessType},</if>
+            <if test="dataVersion != null">data_version = #{dataVersion},</if>
+            <if test="platformId != null and platformId != ''">platform_id = #{platformId},</if>
+            <if test="dataType != null">data_type = #{dataType},</if>
+            <if test="version != null">version = #{version},</if>
+            <if test="dataSource != null">data_source = #{dataSource},</if>
+            <if test="errDetail != null">err_detail = #{errDetail},</if>
+            <if test="crawlerTime != null">crawler_time = #{crawlerTime},</if>
+            <if test="platformName != null">PLATFORM_NAME = #{platformName},</if>
+            <if test="platformCode != null">PLATFORM_CODE = #{platformCode},</if>
+            <if test="platformDepartment != null">PLATFORM_DEPARTMENT = #{platformDepartment},</if>
+            <if test="platformResponsible != null">PLATFORM_RESPONSIBLE = #{platformResponsible},</if>
+            <if test="platformResponsiblePhone != null">PLATFORM_RESPONSIBLE_PHONE = #{platformResponsiblePhone},</if>
+            <if test="platformResponsibleUnit != null">PLATFORM_RESPONSIBLE_UNIT = #{platformResponsibleUnit},</if>
+            <if test="dataResponsibleCode != null">DATA_RESPONSIBLE_CODE = #{dataResponsibleCode},</if>
+            <if test="dataResponsible != null">DATA_RESPONSIBLE = #{dataResponsible},</if>
+            <if test="dataResponsiblePhone != null">DATA_RESPONSIBLE_PHONE = #{dataResponsiblePhone},</if>
+            <if test="extension != null">extension = #{extension},</if>
+            <if test="mask != null">mask = #{mask},</if>
+            <if test="ctime != null">ctime = #{ctime},</if>
+            <if test="mtime != null">mtime = #{mtime},</if>
+            <if test="maxLogicVersion != null">max_logic_version = #{maxLogicVersion},</if>
+            <if test="testData != null">test_data = #{testData},</if>
+        </trim>
+        where row_id = #{rowId}
+    </update>
+
+    <delete id="deleteGovernanceAuditRowByRowId" parameterType="String">
+        delete from governance_aduit_row where row_id = #{rowId}
+    </delete>
+
+    <delete id="deleteGovernanceAuditRowByRowIds" parameterType="String">
+        delete from governance_aduit_row where row_id in 
+        <foreach item="rowId" collection="array" open="(" separator="," close=")">
+            #{rowId}
+        </foreach>
+    </delete>
+</mapper>
