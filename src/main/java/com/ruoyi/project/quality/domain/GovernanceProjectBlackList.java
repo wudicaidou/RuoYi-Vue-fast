@@ -25,13 +25,13 @@ public class GovernanceProjectBlackList extends BaseEntity {
     /**
      * 数据上传交易中心编码
      */
-    @Excel(name = "交易中心编码(非必填)", width = 24)
+    @Excel(name = "交易中心编码", width = 30)
     private String platformId;
 
     /**
      * 数据上传交易中心名称
      */
-    //@Excel(name = "数据上传交易中心名称")
+    @Excel(name = "交易中心名称", width = 30)
     private String platformName;
 
     /**
@@ -43,7 +43,7 @@ public class GovernanceProjectBlackList extends BaseEntity {
     /**
      * 业务类型
      */
-    //@Excel(name = "业务类型")
+    @Excel(name = "业务类型")
     private String businessName;
 
     /**
@@ -58,10 +58,17 @@ public class GovernanceProjectBlackList extends BaseEntity {
     //@Excel(name = "catalog表名")
     private String catalogTableName;
 
+
+    /**
+     * 建设项目编号
+     */
+    @Excel(name = "建设项目编号", width = 30)
+    private String projectCode;
+
     /**
      * 招标项目编号
      */
-    @Excel(name = "项目编号(必填)", width = 30)
+    @Excel(name = "项目编号", width = 30)
     private String tenderProjectCode;
 
     /**
@@ -73,7 +80,7 @@ public class GovernanceProjectBlackList extends BaseEntity {
     /**
      * 标段编号
      */
-    @Excel(name = "标段编号(必填,多个用英文逗号分隔)", width = 100)
+    @Excel(name = "标段编号(多个用英文逗号分隔)", width = 100)
     private String sectionCode;
 
     /**
@@ -164,6 +171,14 @@ public class GovernanceProjectBlackList extends BaseEntity {
         return catalogTableName;
     }
 
+    public String getProjectCode() {
+        return projectCode;
+    }
+
+    public void setProjectCode(String projectCode) {
+        this.projectCode = projectCode;
+    }
+
     public void setTenderProjectCode(String tenderProjectCode) {
         this.tenderProjectCode = tenderProjectCode;
     }
@@ -246,6 +261,7 @@ public class GovernanceProjectBlackList extends BaseEntity {
                 .append("businessName", getBusinessName())
                 .append("ebidsunDataId", getEbidsunDataId())
                 .append("catalogTableName", getCatalogTableName())
+                .append("projectCode", getProjectCode())
                 .append("tenderProjectCode", getTenderProjectCode())
                 .append("tenderProjectName", getTenderProjectName())
                 .append("sectionCode", getSectionCode())
