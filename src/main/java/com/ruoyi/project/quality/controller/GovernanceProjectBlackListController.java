@@ -1,28 +1,22 @@
 package com.ruoyi.project.quality.controller;
 
-import java.util.List;
-import javax.servlet.http.HttpServletResponse;
-
-import com.ruoyi.project.system.domain.SysUser;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.framework.aspectj.lang.annotation.Log;
 import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
-import com.ruoyi.project.quality.domain.GovernanceProjectBlackList;
-import com.ruoyi.project.quality.service.IGovernanceProjectBlackListService;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.framework.web.page.TableDataInfo;
+import com.ruoyi.project.quality.domain.GovernanceProjectBlackList;
+import com.ruoyi.project.quality.service.IGovernanceProjectBlackListService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 测试数据黑名单Controller
@@ -33,6 +27,13 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/quality/blacklist")
 public class GovernanceProjectBlackListController extends BaseController {
+
+    private static ExecutorService FIXED_THREAD_POOL;
+
+    static {
+        FIXED_THREAD_POOL = Executors.newFixedThreadPool(4);
+    }
+
     @Autowired
     private IGovernanceProjectBlackListService governanceProjectBlackListService;
 
@@ -109,7 +110,13 @@ public class GovernanceProjectBlackListController extends BaseController {
     @Log(title = "测试数据黑名单", businessType = BusinessType.OTHER)
     @PutMapping(value = "/exclude")
     public AjaxResult exclude() {
-        return toAjax(governanceProjectBlackListService.excludeGovernanceProjectBlackList());
+        FIXED_THREAD_POOL.execute(new Runnable() {
+            @Override
+            public void run() {
+                governanceProjectBlackListService.excludeGovernanceProjectBlackList();
+            }
+        });
+        return toAjax(1);
     }
 
     /**
