@@ -37,25 +37,25 @@ public class CompeleteMessageDetailDaily extends BaseEntity {
     /**
      * 业务交易中心编码
      */
-    @Excel(name = "业务交易中心编码")
+    // @Excel(name = "业务交易中心编码")
     private String platformCode;
 
     /**
      * 业务类型
      */
-    @Excel(name = "业务类型")
+    // @Excel(name = "业务类型")
     private Integer businessType;
 
     /**
      * 业务类型名称：1工程2采购
      */
-    @Excel(name = "业务类型名称：1工程2采购")
+    @Excel(name = "业务类型")
     private String businessName;
 
     /**
      * 公告类型
      */
-    @Excel(name = "公告类型")
+    //@Excel(name = "公告类型")
     private Integer noticeType;
 
     /**
@@ -74,7 +74,7 @@ public class CompeleteMessageDetailDaily extends BaseEntity {
     /**
      * 网站地址
      */
-    @Excel(name = "网站地址")
+    //@Excel(name = "网站地址")
     private String noticeUrl;
 
     /**
@@ -98,43 +98,43 @@ public class CompeleteMessageDetailDaily extends BaseEntity {
     /**
      * 是否上链
      */
-    @Excel(name = "是否上链")
+    @Excel(name = "是否上链", readConverterExp = "0=否,1=是")
     private Integer compreResult;
 
     /**
      * 修复结果
      */
-    @Excel(name = "修复结果")
+    @Excel(name = "修复结果", readConverterExp = "0=不通过,1=通过")
     private Integer repairResult;
 
     /**
      * 日失效数据标识:1有效0失效
      */
-    @Excel(name = "日失效数据标识:1有效0失效")
+    //@Excel(name = "日失效数据标识:1有效0失效")
     private Integer dayState;
 
     /**
      * 月失效数据标识:1有效0失效
      */
-    @Excel(name = "月失效数据标识:1有效0失效")
+    //@Excel(name = "月失效数据标识:1有效0失效")
     private Integer monthState;
 
     /**
      * 年失效数据标识:1有效0失效
      */
-    @Excel(name = "年失效数据标识:1有效0失效")
+    //@Excel(name = "年失效数据标识:1有效0失效")
     private Integer yearState;
 
     /**
      * 汇总失效数据标识:1有效0失效
      */
-    @Excel(name = "汇总失效数据标识:1有效0失效")
+    //@Excel(name = "汇总失效数据标识:1有效0失效")
     private Integer totalState;
 
     /**
      * 块信息
      */
-    @Excel(name = "块信息")
+    //@Excel(name = "块信息")
     private String blockInfo;
 
     /**
@@ -147,25 +147,25 @@ public class CompeleteMessageDetailDaily extends BaseEntity {
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private String extention;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Integer mask;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Date ctime;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Date mtime;
 
     public void setId(String id) {

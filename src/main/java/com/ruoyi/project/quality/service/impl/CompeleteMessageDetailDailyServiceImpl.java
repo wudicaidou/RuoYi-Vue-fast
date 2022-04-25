@@ -77,6 +77,11 @@ public class CompeleteMessageDetailDailyServiceImpl implements ICompeleteMessage
         return compeleteMessageDetailDailyMapper.deleteCompeleteMessageDetailDailyByIds(ids);
     }
 
+    @Override
+    public int closeCompeleteMessageDetailDailyByIds(String[] ids) {
+        return compeleteMessageDetailDailyMapper.closeCompeleteMessageDetailDailyByIds(ids);
+    }
+
     /**
      * 删除公开信息完整性问题关闭信息
      *

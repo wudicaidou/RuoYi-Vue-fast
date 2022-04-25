@@ -77,6 +77,11 @@ public class CompeleteProcessDetailDailyServiceImpl implements ICompeleteProcess
         return compeleteProcessDetailDailyMapper.deleteCompeleteProcessDetailDailyByIds(ids);
     }
 
+    @Override
+    public int closeCompeleteProcessDetailDailyByIds(String[] ids) {
+        return compeleteProcessDetailDailyMapper.closeCompeleteProcessDetailDailyByIds(ids);
+    }
+
     /**
      * 删除业务流程完整性问题修复信息
      *

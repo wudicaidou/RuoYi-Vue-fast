@@ -3,6 +3,7 @@ package com.ruoyi.project.quality.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ruoyi.project.quality.domain.CloseProblemVO;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -84,6 +85,16 @@ public class CompeleteProcessDetailDailyController extends BaseController {
     @PutMapping
     public AjaxResult edit(@RequestBody CompeleteProcessDetailDaily compeleteProcessDetailDaily) {
         return toAjax(compeleteProcessDetailDailyService.updateCompeleteProcessDetailDaily(compeleteProcessDetailDaily));
+    }
+
+    /**
+     * 关闭业务流程完整性问题
+     */
+    @PreAuthorize("@ss.hasPermi('quality:process:close')")
+    @Log(title = "业务流程完整性问题修复", businessType = BusinessType.UPDATE)
+    @PutMapping(value = "/as-close")
+    public AjaxResult close(@RequestBody CloseProblemVO vo) {
+        return toAjax(compeleteProcessDetailDailyService.closeCompeleteProcessDetailDailyByIds(vo.getIds()));
     }
 
     /**

@@ -51,6 +51,8 @@ public interface ICompeleteMessageDetailDailyService {
      */
     public int deleteCompeleteMessageDetailDailyByIds(String[] ids);
 
+    public int closeCompeleteMessageDetailDailyByIds(String[] ids);
+
     /**
      * 删除公开信息完整性问题关闭信息
      *

@@ -37,25 +37,25 @@ public class ComprehensiveDetailDaily extends BaseEntity {
     /**
      * 业务交易中心编码
      */
-    @Excel(name = "业务交易中心编码")
+    //@Excel(name = "业务交易中心编码")
     private String platformCode;
 
     /**
      * 业务类型
      */
-    @Excel(name = "业务类型")
+    //@Excel(name = "业务类型")
     private Integer businessType;
 
     /**
      * 业务类型名称：1工程2采购
      */
-    @Excel(name = "业务类型名称：1工程2采购")
+    @Excel(name = "业务类型")
     private String businessName;
 
     /**
      * 公告类型
      */
-    @Excel(name = "公告类型")
+    //@Excel(name = "公告类型")
     private Integer noticeType;
 
     /**
@@ -74,7 +74,7 @@ public class ComprehensiveDetailDaily extends BaseEntity {
     /**
      * 网站地址
      */
-    @Excel(name = "网站地址")
+    //@Excel(name = "网站地址")
     private String noticeUrl;
 
     /**
@@ -122,37 +122,37 @@ public class ComprehensiveDetailDaily extends BaseEntity {
     /**
      * 全面性检测结果
      */
-    @Excel(name = "全面性检测结果")
+    @Excel(name = "全面性检测结果", readConverterExp = "0=不通过,1=通过")
     private Integer compreResult;
 
     /**
      * 日失效数据标识:1有效0失效
      */
-    @Excel(name = "日失效数据标识:1有效0失效")
+    //@Excel(name = "日失效数据标识:1有效0失效")
     private Integer dayState;
 
     /**
      * 月失效数据标识:1有效0失效
      */
-    @Excel(name = "月失效数据标识:1有效0失效")
+    //@Excel(name = "月失效数据标识:1有效0失效")
     private Integer monthState;
 
     /**
      * 年失效数据标识:1有效0失效
      */
-    @Excel(name = "年失效数据标识:1有效0失效")
+    //@Excel(name = "年失效数据标识:1有效0失效")
     private Integer yearState;
 
     /**
      * 汇总失效数据标识:1有效0失效
      */
-    @Excel(name = "汇总失效数据标识:1有效0失效")
+    //@Excel(name = "汇总失效数据标识:1有效0失效")
     private Integer totalState;
 
     /**
      * 全面性修复结果
      */
-    @Excel(name = "全面性修复结果")
+    @Excel(name = "全面性修复结果", readConverterExp = "0=不通过,1=通过")
     private Integer repairResult;
 
     /**
@@ -165,7 +165,7 @@ public class ComprehensiveDetailDaily extends BaseEntity {
     /**
      * 招标项目块信息
      */
-    @Excel(name = "招标项目块信息")
+    //@Excel(name = "招标项目块信息")
     private String tenderProjectBlockInfo;
 
     /**
@@ -178,7 +178,7 @@ public class ComprehensiveDetailDaily extends BaseEntity {
     /**
      * 标段块信息
      */
-    @Excel(name = "标段块信息")
+    //@Excel(name = "标段块信息")
     private String sectionBlockInfo;
 
     /**
@@ -191,31 +191,31 @@ public class ComprehensiveDetailDaily extends BaseEntity {
     /**
      * 建设项目块信息
      */
-    @Excel(name = "建设项目块信息")
+    //@Excel(name = "建设项目块信息")
     private String projectBlockInfo;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private String extention;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Integer mask;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Date ctime;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Date mtime;
 
     public void setId(String id) {

@@ -58,4 +58,6 @@ public interface CompeleteProcessDetailDailyMapper {
      * @return 结果
      */
     public int deleteCompeleteProcessDetailDailyByIds(String[] ids);
+
+    public int closeCompeleteProcessDetailDailyByIds(String[] ids);
 }

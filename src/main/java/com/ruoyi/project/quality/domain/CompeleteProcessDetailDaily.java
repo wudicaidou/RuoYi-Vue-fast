@@ -37,13 +37,13 @@ public class CompeleteProcessDetailDaily extends BaseEntity {
     /**
      * 业务交易中心编码
      */
-    @Excel(name = "业务交易中心编码")
+    //@Excel(name = "业务交易中心编码")
     private String platformCode;
 
     /**
      * 业务类型
      */
-    @Excel(name = "业务类型")
+    //@Excel(name = "业务类型")
     private Integer businessType;
 
     /**
@@ -79,13 +79,13 @@ public class CompeleteProcessDetailDaily extends BaseEntity {
     /**
      * 项目进展（结束表名）
      */
-    @Excel(name = "项目进展", readConverterExp = "结=束表名")
+    @Excel(name = "项目进展")
     private String finishTable;
 
     /**
      * 项目进展（结束表英文名）
      */
-    @Excel(name = "项目进展", readConverterExp = "结=束表英文名")
+    //@Excel(name = "项目进展", readConverterExp = "结=束表英文名")
     private String finishTableEn;
 
     /**
@@ -97,55 +97,55 @@ public class CompeleteProcessDetailDaily extends BaseEntity {
     /**
      * 流程表英文名
      */
-    @Excel(name = "流程表英文名")
+    //@Excel(name = "流程表英文名")
     private String allTableEn;
 
     /**
      * 是否应上链
      */
-    @Excel(name = "是否应上链")
+    @Excel(name = "是否应上链", readConverterExp = "0=否,1=是")
     private Integer needFlag;
 
     /**
      * 是否上链
      */
-    @Excel(name = "是否上链")
+    @Excel(name = "是否上链", readConverterExp = "0=否,1=是")
     private Integer chainFlag;
 
     /**
      * 修复结果
      */
-    @Excel(name = "修复结果")
+    @Excel(name = "修复结果", readConverterExp = "0=不通过,1=通过")
     private Integer repairFlag;
 
     /**
      * 日失效数据标识:1有效0失效
      */
-    @Excel(name = "日失效数据标识:1有效0失效")
+    //@Excel(name = "日失效数据标识:1有效0失效")
     private Integer dayState;
 
     /**
      * 月失效数据标识:1有效0失效
      */
-    @Excel(name = "月失效数据标识:1有效0失效")
+    //@Excel(name = "月失效数据标识:1有效0失效")
     private Integer monthState;
 
     /**
      * 年失效数据标识:1有效0失效
      */
-    @Excel(name = "年失效数据标识:1有效0失效")
+    //@Excel(name = "年失效数据标识:1有效0失效")
     private Integer yearState;
 
     /**
      * 汇总失效数据标识:1有效0失效
      */
-    @Excel(name = "汇总失效数据标识:1有效0失效")
+    //@Excel(name = "汇总失效数据标识:1有效0失效")
     private Integer totalState;
 
     /**
      * 成交/终止公告块信息
      */
-    @Excel(name = "成交/终止公告块信息")
+    //@Excel(name = "成交/终止公告块信息")
     private String blockInfo;
 
     /**
@@ -158,25 +158,25 @@ public class CompeleteProcessDetailDaily extends BaseEntity {
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private String extention;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Integer mask;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Date ctime;
 
     /**
      * $column.columnComment
      */
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
+    //@Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
     private Date mtime;
 
     public void setId(String id) {

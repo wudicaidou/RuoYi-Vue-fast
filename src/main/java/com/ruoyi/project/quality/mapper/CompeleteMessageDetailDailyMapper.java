@@ -58,4 +58,6 @@ public interface CompeleteMessageDetailDailyMapper {
      * @return 结果
      */
     public int deleteCompeleteMessageDetailDailyByIds(String[] ids);
+
+    public int closeCompeleteMessageDetailDailyByIds(String[] ids);
 }

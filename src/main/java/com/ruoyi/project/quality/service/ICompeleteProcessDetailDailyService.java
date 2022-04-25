@@ -51,6 +51,8 @@ public interface ICompeleteProcessDetailDailyService {
      */
     public int deleteCompeleteProcessDetailDailyByIds(String[] ids);
 
+    public int closeCompeleteProcessDetailDailyByIds(String[] ids);
+
     /**
      * 删除业务流程完整性问题修复信息
      *

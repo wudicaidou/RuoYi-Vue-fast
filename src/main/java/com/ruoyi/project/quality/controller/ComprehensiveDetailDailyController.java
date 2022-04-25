@@ -88,7 +88,7 @@ public class ComprehensiveDetailDailyController extends BaseController {
     }
 
     /**
-     * 修改全面性问题关闭
+     * 关闭全面性问题
      */
     @PreAuthorize("@ss.hasPermi('quality:compre:close')")
     @Log(title = "全面性问题关闭", businessType = BusinessType.UPDATE)

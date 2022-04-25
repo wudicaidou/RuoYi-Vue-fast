@@ -3,6 +3,7 @@ package com.ruoyi.project.quality.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ruoyi.project.quality.domain.CloseProblemVO;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -84,6 +85,16 @@ public class CompeleteMessageDetailDailyController extends BaseController {
     @PutMapping
     public AjaxResult edit(@RequestBody CompeleteMessageDetailDaily compeleteMessageDetailDaily) {
         return toAjax(compeleteMessageDetailDailyService.updateCompeleteMessageDetailDaily(compeleteMessageDetailDaily));
+    }
+
+    /**
+     * 关闭公开信息完整性问题
+     */
+    @PreAuthorize("@ss.hasPermi('quality:message:close')")
+    @Log(title = "公开信息完整性问题关闭", businessType = BusinessType.UPDATE)
+    @PutMapping(value = "/as-close")
+    public AjaxResult close(@RequestBody CloseProblemVO vo) {
+        return toAjax(compeleteMessageDetailDailyService.closeCompeleteMessageDetailDailyByIds(vo.getIds()));
     }
 
     /**
