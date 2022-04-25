@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.quality.mapper.CompeleteProcessDetailDailyMapper">
+    
+    <resultMap type="CompeleteProcessDetailDaily" id="CompeleteProcessDetailDailyResult">
+        <result property="id"    column="id"    />
+        <result property="platformId"    column="platform_id"    />
+        <result property="platformName"    column="platform_name"    />
+        <result property="platformCode"    column="platform_code"    />
+        <result property="businessType"    column="business_type"    />
+        <result property="businessName"    column="business_name"    />
+        <result property="tenderProjectCode"    column="tender_project_code"    />
+        <result property="tenderProjectName"    column="tender_project_name"    />
+        <result property="sectionCode"    column="section_code"    />
+        <result property="sectionName"    column="section_name"    />
+        <result property="finishTable"    column="finish_table"    />
+        <result property="finishTableEn"    column="finish_table_en"    />
+        <result property="allTable"    column="all_table"    />
+        <result property="allTableEn"    column="all_table_en"    />
+        <result property="needFlag"    column="need_flag"    />
+        <result property="chainFlag"    column="chain_flag"    />
+        <result property="repairFlag"    column="repair_flag"    />
+        <result property="dayState"    column="day_state"    />
+        <result property="monthState"    column="month_state"    />
+        <result property="yearState"    column="year_state"    />
+        <result property="totalState"    column="total_state"    />
+        <result property="blockInfo"    column="block_info"    />
+        <result property="uploadTime"    column="upload_time"    />
+        <result property="extention"    column="extention"    />
+        <result property="mask"    column="mask"    />
+        <result property="ctime"    column="ctime"    />
+        <result property="mtime"    column="mtime"    />
+    </resultMap>
+
+    <sql id="selectCompeleteProcessDetailDailyVo">
+        select id, platform_id, platform_name, platform_code, business_type, business_name, tender_project_code, tender_project_name, section_code, section_name, finish_table, finish_table_en, all_table, all_table_en, need_flag, chain_flag, repair_flag, day_state, month_state, year_state, total_state, block_info, upload_time, extention, mask, ctime, mtime from ads_gzh_compelete_process_detail_daily
+    </sql>
+
+    <select id="selectCompeleteProcessDetailDailyList" parameterType="CompeleteProcessDetailDaily" resultMap="CompeleteProcessDetailDailyResult">
+        <include refid="selectCompeleteProcessDetailDailyVo"/>
+        <where>  
+            <if test="platformId != null  and platformId != ''"> and platform_id = #{platformId}</if>
+            <if test="platformName != null  and platformName != ''"> and platform_name like concat('%', #{platformName}, '%')</if>
+            <if test="platformCode != null  and platformCode != ''"> and platform_code = #{platformCode}</if>
+            <if test="businessType != null "> and business_type = #{businessType}</if>
+            <if test="businessName != null  and businessName != ''"> and business_name like concat('%', #{businessName}, '%')</if>
+            <if test="tenderProjectCode != null  and tenderProjectCode != ''"> and tender_project_code = #{tenderProjectCode}</if>
+            <if test="tenderProjectName != null  and tenderProjectName != ''"> and tender_project_name like concat('%', #{tenderProjectName}, '%')</if>
+            <if test="sectionCode != null  and sectionCode != ''"> and section_code = #{sectionCode}</if>
+            <if test="sectionName != null  and sectionName != ''"> and section_name like concat('%', #{sectionName}, '%')</if>
+            <if test="finishTable != null  and finishTable != ''"> and finish_table = #{finishTable}</if>
+            <if test="finishTableEn != null  and finishTableEn != ''"> and finish_table_en = #{finishTableEn}</if>
+            <if test="allTable != null  and allTable != ''"> and all_table = #{allTable}</if>
+            <if test="allTableEn != null  and allTableEn != ''"> and all_table_en = #{allTableEn}</if>
+            <if test="needFlag != null "> and need_flag = #{needFlag}</if>
+            <if test="chainFlag != null "> and chain_flag = #{chainFlag}</if>
+            <if test="repairFlag != null "> and repair_flag = #{repairFlag}</if>
+            <if test="dayState != null "> and day_state = #{dayState}</if>
+            <if test="monthState != null "> and month_state = #{monthState}</if>
+            <if test="yearState != null "> and year_state = #{yearState}</if>
+            <if test="totalState != null "> and total_state = #{totalState}</if>
+            <if test="blockInfo != null  and blockInfo != ''"> and block_info = #{blockInfo}</if>
+            <if test="uploadTime != null "> and upload_time = #{uploadTime}</if>
+            <if test="extention != null  and extention != ''"> and extention = #{extention}</if>
+            <if test="mask != null "> and mask = #{mask}</if>
+            <if test="ctime != null "> and ctime = #{ctime}</if>
+            <if test="mtime != null "> and mtime = #{mtime}</if>
+        </where>
+    </select>
+    
+    <select id="selectCompeleteProcessDetailDailyById" parameterType="String" resultMap="CompeleteProcessDetailDailyResult">
+        <include refid="selectCompeleteProcessDetailDailyVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertCompeleteProcessDetailDaily" parameterType="CompeleteProcessDetailDaily">
+        insert into ads_gzh_compelete_process_detail_daily
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="platformId != null">platform_id,</if>
+            <if test="platformName != null">platform_name,</if>
+            <if test="platformCode != null">platform_code,</if>
+            <if test="businessType != null">business_type,</if>
+            <if test="businessName != null">business_name,</if>
+            <if test="tenderProjectCode != null">tender_project_code,</if>
+            <if test="tenderProjectName != null">tender_project_name,</if>
+            <if test="sectionCode != null">section_code,</if>
+            <if test="sectionName != null">section_name,</if>
+            <if test="finishTable != null">finish_table,</if>
+            <if test="finishTableEn != null">finish_table_en,</if>
+            <if test="allTable != null">all_table,</if>
+            <if test="allTableEn != null">all_table_en,</if>
+            <if test="needFlag != null">need_flag,</if>
+            <if test="chainFlag != null">chain_flag,</if>
+            <if test="repairFlag != null">repair_flag,</if>
+            <if test="dayState != null">day_state,</if>
+            <if test="monthState != null">month_state,</if>
+            <if test="yearState != null">year_state,</if>
+            <if test="totalState != null">total_state,</if>
+            <if test="blockInfo != null">block_info,</if>
+            <if test="uploadTime != null">upload_time,</if>
+            <if test="extention != null">extention,</if>
+            <if test="mask != null">mask,</if>
+            <if test="ctime != null">ctime,</if>
+            <if test="mtime != null">mtime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="platformId != null">#{platformId},</if>
+            <if test="platformName != null">#{platformName},</if>
+            <if test="platformCode != null">#{platformCode},</if>
+            <if test="businessType != null">#{businessType},</if>
+            <if test="businessName != null">#{businessName},</if>
+            <if test="tenderProjectCode != null">#{tenderProjectCode},</if>
+            <if test="tenderProjectName != null">#{tenderProjectName},</if>
+            <if test="sectionCode != null">#{sectionCode},</if>
+            <if test="sectionName != null">#{sectionName},</if>
+            <if test="finishTable != null">#{finishTable},</if>
+            <if test="finishTableEn != null">#{finishTableEn},</if>
+            <if test="allTable != null">#{allTable},</if>
+            <if test="allTableEn != null">#{allTableEn},</if>
+            <if test="needFlag != null">#{needFlag},</if>
+            <if test="chainFlag != null">#{chainFlag},</if>
+            <if test="repairFlag != null">#{repairFlag},</if>
+            <if test="dayState != null">#{dayState},</if>
+            <if test="monthState != null">#{monthState},</if>
+            <if test="yearState != null">#{yearState},</if>
+            <if test="totalState != null">#{totalState},</if>
+            <if test="blockInfo != null">#{blockInfo},</if>
+            <if test="uploadTime != null">#{uploadTime},</if>
+            <if test="extention != null">#{extention},</if>
+            <if test="mask != null">#{mask},</if>
+            <if test="ctime != null">#{ctime},</if>
+            <if test="mtime != null">#{mtime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCompeleteProcessDetailDaily" parameterType="CompeleteProcessDetailDaily">
+        update ads_gzh_compelete_process_detail_daily
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="platformId != null">platform_id = #{platformId},</if>
+            <if test="platformName != null">platform_name = #{platformName},</if>
+            <if test="platformCode != null">platform_code = #{platformCode},</if>
+            <if test="businessType != null">business_type = #{businessType},</if>
+            <if test="businessName != null">business_name = #{businessName},</if>
+            <if test="tenderProjectCode != null">tender_project_code = #{tenderProjectCode},</if>
+            <if test="tenderProjectName != null">tender_project_name = #{tenderProjectName},</if>
+            <if test="sectionCode != null">section_code = #{sectionCode},</if>
+            <if test="sectionName != null">section_name = #{sectionName},</if>
+            <if test="finishTable != null">finish_table = #{finishTable},</if>
+            <if test="finishTableEn != null">finish_table_en = #{finishTableEn},</if>
+            <if test="allTable != null">all_table = #{allTable},</if>
+            <if test="allTableEn != null">all_table_en = #{allTableEn},</if>
+            <if test="needFlag != null">need_flag = #{needFlag},</if>
+            <if test="chainFlag != null">chain_flag = #{chainFlag},</if>
+            <if test="repairFlag != null">repair_flag = #{repairFlag},</if>
+            <if test="dayState != null">day_state = #{dayState},</if>
+            <if test="monthState != null">month_state = #{monthState},</if>
+            <if test="yearState != null">year_state = #{yearState},</if>
+            <if test="totalState != null">total_state = #{totalState},</if>
+            <if test="blockInfo != null">block_info = #{blockInfo},</if>
+            <if test="uploadTime != null">upload_time = #{uploadTime},</if>
+            <if test="extention != null">extention = #{extention},</if>
+            <if test="mask != null">mask = #{mask},</if>
+            <if test="ctime != null">ctime = #{ctime},</if>
+            <if test="mtime != null">mtime = #{mtime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteCompeleteProcessDetailDailyById" parameterType="String">
+        delete from ads_gzh_compelete_process_detail_daily where id = #{id}
+    </delete>
+
+    <delete id="deleteCompeleteProcessDetailDailyByIds" parameterType="String">
+        delete from ads_gzh_compelete_process_detail_daily where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

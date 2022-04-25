@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.quality.mapper.CompeleteMessageDetailDailyMapper">
+    
+    <resultMap type="CompeleteMessageDetailDaily" id="CompeleteMessageDetailDailyResult">
+        <result property="id"    column="id"    />
+        <result property="platformId"    column="platform_id"    />
+        <result property="platformName"    column="platform_name"    />
+        <result property="platformCode"    column="platform_code"    />
+        <result property="businessType"    column="business_type"    />
+        <result property="businessName"    column="business_name"    />
+        <result property="noticeType"    column="notice_type"    />
+        <result property="noticeName"    column="notice_name"    />
+        <result property="noticeTime"    column="notice_time"    />
+        <result property="noticeUrl"    column="notice_url"    />
+        <result property="noticeTitle"    column="notice_title"    />
+        <result property="tenderProjectCode"    column="tender_project_code"    />
+        <result property="tenderProjectName"    column="tender_project_name"    />
+        <result property="compreResult"    column="compre_result"    />
+        <result property="repairResult"    column="repair_result"    />
+        <result property="dayState"    column="day_state"    />
+        <result property="monthState"    column="month_state"    />
+        <result property="yearState"    column="year_state"    />
+        <result property="totalState"    column="total_state"    />
+        <result property="blockInfo"    column="block_info"    />
+        <result property="uploadTime"    column="upload_time"    />
+        <result property="extention"    column="extention"    />
+        <result property="mask"    column="mask"    />
+        <result property="ctime"    column="ctime"    />
+        <result property="mtime"    column="mtime"    />
+    </resultMap>
+
+    <sql id="selectCompeleteMessageDetailDailyVo">
+        select id, platform_id, platform_name, platform_code, business_type, business_name, notice_type, notice_name, notice_time, notice_url, notice_title, tender_project_code, tender_project_name, compre_result, repair_result, day_state, month_state, year_state, total_state, block_info, upload_time, extention, mask, ctime, mtime from ads_gzh_compelete_message_detail_daily
+    </sql>
+
+    <select id="selectCompeleteMessageDetailDailyList" parameterType="CompeleteMessageDetailDaily" resultMap="CompeleteMessageDetailDailyResult">
+        <include refid="selectCompeleteMessageDetailDailyVo"/>
+        <where>  
+            <if test="platformId != null  and platformId != ''"> and platform_id = #{platformId}</if>
+            <if test="platformName != null  and platformName != ''"> and platform_name like concat('%', #{platformName}, '%')</if>
+            <if test="platformCode != null  and platformCode != ''"> and platform_code = #{platformCode}</if>
+            <if test="businessType != null "> and business_type = #{businessType}</if>
+            <if test="businessName != null  and businessName != ''"> and business_name like concat('%', #{businessName}, '%')</if>
+            <if test="noticeType != null "> and notice_type = #{noticeType}</if>
+            <if test="noticeName != null  and noticeName != ''"> and notice_name like concat('%', #{noticeName}, '%')</if>
+            <if test="noticeTime != null "> and notice_time = #{noticeTime}</if>
+            <if test="noticeUrl != null  and noticeUrl != ''"> and notice_url = #{noticeUrl}</if>
+            <if test="noticeTitle != null  and noticeTitle != ''"> and notice_title = #{noticeTitle}</if>
+            <if test="tenderProjectCode != null  and tenderProjectCode != ''"> and tender_project_code = #{tenderProjectCode}</if>
+            <if test="tenderProjectName != null  and tenderProjectName != ''"> and tender_project_name like concat('%', #{tenderProjectName}, '%')</if>
+            <if test="compreResult != null "> and compre_result = #{compreResult}</if>
+            <if test="repairResult != null "> and repair_result = #{repairResult}</if>
+            <if test="dayState != null "> and day_state = #{dayState}</if>
+            <if test="monthState != null "> and month_state = #{monthState}</if>
+            <if test="yearState != null "> and year_state = #{yearState}</if>
+            <if test="totalState != null "> and total_state = #{totalState}</if>
+            <if test="blockInfo != null  and blockInfo != ''"> and block_info = #{blockInfo}</if>
+            <if test="uploadTime != null "> and upload_time = #{uploadTime}</if>
+            <if test="mask != null "> and mask = #{mask}</if>
+        </where>
+    </select>
+    
+    <select id="selectCompeleteMessageDetailDailyById" parameterType="String" resultMap="CompeleteMessageDetailDailyResult">
+        <include refid="selectCompeleteMessageDetailDailyVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertCompeleteMessageDetailDaily" parameterType="CompeleteMessageDetailDaily">
+        insert into ads_gzh_compelete_message_detail_daily
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="platformId != null">platform_id,</if>
+            <if test="platformName != null">platform_name,</if>
+            <if test="platformCode != null">platform_code,</if>
+            <if test="businessType != null">business_type,</if>
+            <if test="businessName != null">business_name,</if>
+            <if test="noticeType != null">notice_type,</if>
+            <if test="noticeName != null">notice_name,</if>
+            <if test="noticeTime != null">notice_time,</if>
+            <if test="noticeUrl != null">notice_url,</if>
+            <if test="noticeTitle != null">notice_title,</if>
+            <if test="tenderProjectCode != null">tender_project_code,</if>
+            <if test="tenderProjectName != null">tender_project_name,</if>
+            <if test="compreResult != null">compre_result,</if>
+            <if test="repairResult != null">repair_result,</if>
+            <if test="dayState != null">day_state,</if>
+            <if test="monthState != null">month_state,</if>
+            <if test="yearState != null">year_state,</if>
+            <if test="totalState != null">total_state,</if>
+            <if test="blockInfo != null">block_info,</if>
+            <if test="uploadTime != null">upload_time,</if>
+            <if test="extention != null">extention,</if>
+            <if test="mask != null">mask,</if>
+            <if test="ctime != null">ctime,</if>
+            <if test="mtime != null">mtime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="platformId != null">#{platformId},</if>
+            <if test="platformName != null">#{platformName},</if>
+            <if test="platformCode != null">#{platformCode},</if>
+            <if test="businessType != null">#{businessType},</if>
+            <if test="businessName != null">#{businessName},</if>
+            <if test="noticeType != null">#{noticeType},</if>
+            <if test="noticeName != null">#{noticeName},</if>
+            <if test="noticeTime != null">#{noticeTime},</if>
+            <if test="noticeUrl != null">#{noticeUrl},</if>
+            <if test="noticeTitle != null">#{noticeTitle},</if>
+            <if test="tenderProjectCode != null">#{tenderProjectCode},</if>
+            <if test="tenderProjectName != null">#{tenderProjectName},</if>
+            <if test="compreResult != null">#{compreResult},</if>
+            <if test="repairResult != null">#{repairResult},</if>
+            <if test="dayState != null">#{dayState},</if>
+            <if test="monthState != null">#{monthState},</if>
+            <if test="yearState != null">#{yearState},</if>
+            <if test="totalState != null">#{totalState},</if>
+            <if test="blockInfo != null">#{blockInfo},</if>
+            <if test="uploadTime != null">#{uploadTime},</if>
+            <if test="extention != null">#{extention},</if>
+            <if test="mask != null">#{mask},</if>
+            <if test="ctime != null">#{ctime},</if>
+            <if test="mtime != null">#{mtime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCompeleteMessageDetailDaily" parameterType="CompeleteMessageDetailDaily">
+        update ads_gzh_compelete_message_detail_daily
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="platformId != null">platform_id = #{platformId},</if>
+            <if test="platformName != null">platform_name = #{platformName},</if>
+            <if test="platformCode != null">platform_code = #{platformCode},</if>
+            <if test="businessType != null">business_type = #{businessType},</if>
+            <if test="businessName != null">business_name = #{businessName},</if>
+            <if test="noticeType != null">notice_type = #{noticeType},</if>
+            <if test="noticeName != null">notice_name = #{noticeName},</if>
+            <if test="noticeTime != null">notice_time = #{noticeTime},</if>
+            <if test="noticeUrl != null">notice_url = #{noticeUrl},</if>
+            <if test="noticeTitle != null">notice_title = #{noticeTitle},</if>
+            <if test="tenderProjectCode != null">tender_project_code = #{tenderProjectCode},</if>
+            <if test="tenderProjectName != null">tender_project_name = #{tenderProjectName},</if>
+            <if test="compreResult != null">compre_result = #{compreResult},</if>
+            <if test="repairResult != null">repair_result = #{repairResult},</if>
+            <if test="dayState != null">day_state = #{dayState},</if>
+            <if test="monthState != null">month_state = #{monthState},</if>
+            <if test="yearState != null">year_state = #{yearState},</if>
+            <if test="totalState != null">total_state = #{totalState},</if>
+            <if test="blockInfo != null">block_info = #{blockInfo},</if>
+            <if test="uploadTime != null">upload_time = #{uploadTime},</if>
+            <if test="extention != null">extention = #{extention},</if>
+            <if test="mask != null">mask = #{mask},</if>
+            <if test="ctime != null">ctime = #{ctime},</if>
+            <if test="mtime != null">mtime = #{mtime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteCompeleteMessageDetailDailyById" parameterType="String">
+        delete from ads_gzh_compelete_message_detail_daily where id = #{id}
+    </delete>
+
+    <delete id="deleteCompeleteMessageDetailDailyByIds" parameterType="String">
+        delete from ads_gzh_compelete_message_detail_daily where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
