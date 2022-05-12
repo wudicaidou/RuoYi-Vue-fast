@@ -209,7 +209,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 
     <update id="closeComprehensiveDetailDailyByIds" parameterType="String">
-        update ads_gzh_comprehensive_detail_daily set repair_result = 1,modify_mask = 1 where id in
+        update ads_gzh_comprehensive_detail_daily set repair_result = 1,modify_mask = 1,repair_time = CURRENT_TIMESTAMP where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>
