@@ -38,7 +38,8 @@ public class ComprehensiveController extends BaseController {
         params.put("global_platform_id", reRunVO.getPlatformId());
         params.put("global_start_date", reRunVO.getStartDate().replaceAll("-", ""));
         params.put("global_end_date", reRunVO.getEndDate().replaceAll("-", ""));
-        DolphinApiResult result = dolphinApiService.startProcessInstance("4940252228838", params);
+        DolphinApiResult result = dolphinApiService.startProcessInstance("5558918970216", params);
+        //DolphinApiResult result = dolphinApiService.startProcessInstance("4940252228838", params);
 
         /*params.put("global_start_day", reRunVO.getStartDate());
         params.put("global_end_day", reRunVO.getEndDate());
